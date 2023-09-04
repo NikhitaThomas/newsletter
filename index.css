@@ -1,0 +1,31 @@
+body {
+  background-color: hsl(228, 52%, 20%);
+  margin: 0;
+  padding: 10% 20%;
+}
+.container {
+  padding: 20px;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.left {
+  padding: 10% 5%;
+}
+
+ul {
+  list-style-image: url("assets/images/icon-list.svg");
+}
+.btn-lg {
+  width: 100%;
+}
+
+.attribution {
+  color: beige;
+}
+
+#success {
+  width: 50%;
+  padding: 5%;
+  display: none;
+}
