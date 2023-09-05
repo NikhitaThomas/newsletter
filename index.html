@@ -54,13 +54,22 @@
             <li>And much more!</li>
             <br />
           </ul>
-          Email address<br />
+
+          <div class="emailInput">
+            <span class="email2">Email address</span>
+            <span id="invalidEmail" class="invalidEmail"
+              >Valid email required</span
+            >
+          </div>
           <input
             id="email"
             type="text"
             class="form-control"
             placeholder="email@company.com"
-          /><br />
+          />
+          <div class="invalid-feedback">Please fill out this field.</div>
+          <br />
+
           <button
             onclick="myFunction()"
             type="button"
@@ -88,7 +97,9 @@
           to confirm your subscription. Dismiss message
         </p>
         <br />
-        <button class="btn btn-dark btn-lg">Dismiss message</button>
+        <button class="dismiss btn btn-dark btn-lg" onclick="dismissPage()">
+          Dismiss message
+        </button>
       </div>
     </div>
     <br />
@@ -102,14 +113,39 @@
   <script>
     let useremail = document.getElementById("email");
     let span = document.getElementById("email1");
+    let myForm = document.getElementById("myForm");
+    let dismiss = document.getElementById("dismiss");
+
+    const emailRegex = new RegExp(
+      /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
+      "gm"
+    );
 
     function myFunction() {
-      console.log(useremail.value);
-      span.innerHTML = useremail.value;
+      const isValidEmail = emailRegex.test(useremail.value);
+      let invalidEmail = document.getElementById("invalidEmail");
+      if (isValidEmail) {
+        span.innerHTML = useremail.value;
+        let row = document.getElementById("main");
+        let success_message = document.getElementById("success");
+        row.style.display = "none";
+        success_message.style.display = "block";
+      } else {
+        invalidEmail.style.display = "block";
+        email.classList.add("border-danger");
+        email.classList.add("text-danger");
+        // email.classList.toggle("border-danger");
+      }
+    }
+
+    function dismissPage() {
       let row = document.getElementById("main");
       let success_message = document.getElementById("success");
-      row.style.display = "none";
-      success_message.style.display = "block";
+      row.style.display = "block";
+      success_message.style.display = "none";
+      invalidEmail.style.display = "none";
+      email.classList.remove("border-danger");
+      email.classList.remove("text-danger");
     }
   </script>
 </html>
