@@ -17,6 +17,12 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link href="index.css" rel="stylesheet" />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -78,10 +84,14 @@
             Subscribe to monthly newsletter
           </button>
         </div>
-        <div class="col image">
+        <div class="col image" style="text-align: center; width: 100%">
           <img
-            class="signUpImage"
+            class="signUpImageDesktop"
             src="assets/images/illustration-sign-up-desktop.svg"
+          />
+          <img
+            class="signUpImageMobile"
+            src="assets/images/illustration-sign-up-mobile.svg"
           />
         </div>
       </div>
@@ -134,6 +144,7 @@
         invalidEmail.style.display = "block";
         email.classList.add("border-danger");
         email.classList.add("text-danger");
+        email.classList.add("textBackground");
         // email.classList.toggle("border-danger");
       }
     }
@@ -146,6 +157,7 @@
       invalidEmail.style.display = "none";
       email.classList.remove("border-danger");
       email.classList.remove("text-danger");
+      email.classList.remove("textBackground");
     }
   </script>
 </html>
